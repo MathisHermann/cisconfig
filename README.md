@@ -1,5 +1,5 @@
 # Cisconfigger
-Tool to generate a Router (later mmaybe also Switch) config for IOS by Cisco. Based on laravel. Not yet deployed. Maybe later.
+Tool to generate a Router (later maybe also Switch) config for IOS by Cisco. Based on laravel. It is deployed, you can ask for the URL.
 
 Have fun.
 
