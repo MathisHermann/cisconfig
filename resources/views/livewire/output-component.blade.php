@@ -4,7 +4,7 @@
         <div>
             ena
         </div>
-    <x-conf
+        <x-conf
             :commands="$main_commands"
         />
     </div>
@@ -19,6 +19,9 @@
         />
     </div>
     <button
-    wire:click="generate"
-        type="button" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Generate</button>
+        wire:click="generate"
+        type="button"
+        class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        Generate
+    </button>
 </div>
