@@ -35,6 +35,8 @@ class OutputComponent extends MainComponent
 
         $main_config = [];
 
+        $main_config[] = 'ena';
+
         if (!blank($this->hostname))
             $main_config[] = ['hostname ' . $this->hostname];
 
