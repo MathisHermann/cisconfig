@@ -36,7 +36,7 @@
                 <label for="ipv4addresssubnet"
                        class="block text-sm font-medium text-gray-700 sr-only">IPv4
                     Subnet</label>
-                <div class="mt-1 flex flex-row justify-between space-x-4">
+                <div class="mt-1 flex lg:flex-row sm:flex-col justify-between space-x-4">
                     <input
                         wire:model="interface_bag.{{ $index }}.ipv4_address"
                         type="text" name="ipv4address" id="ipv4address" value="127.0.0.1"
