@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 sm:grid-cols-3 sm:space-x-4 space-y-6 sm:space-y-0">
+<div class="grid md:grid-cols-3 md:space-x-4 space-y-6 md:space-y-0">
     <div>
         <livewire:main-config-component/>
         <livewire:general-component/>
