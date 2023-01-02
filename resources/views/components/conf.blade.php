@@ -1,8 +1,5 @@
 @props(['commands'])
 <div>
-    <div>
-        ena
-    </div>
     @foreach($commands as $command)
         @if(count($command))
             <div>

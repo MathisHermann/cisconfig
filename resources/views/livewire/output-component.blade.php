@@ -1,6 +1,9 @@
 <div>
     <h2 class="text-2xl font-bold leading-tight text-gray-900">Grundkonfiguration</h2>
     <div class="mt-8">
+        <div>
+            ena
+        </div>
     <x-conf
             :commands="$main_commands"
         />
