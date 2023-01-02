@@ -42,7 +42,6 @@ class OutputComponent extends MainComponent
             $main_config[] = [
                 'line console 0',
                 'password ' . $this->console_pw,
-                'login'
             ];
 
         if ($this->enable)
@@ -56,7 +55,6 @@ class OutputComponent extends MainComponent
             $main_config[] = [
                 'line vty 0 4',
                 'password ' . $this->telnet_pw,
-                'login',
                 'transport input telnet',
             ];
 
@@ -89,6 +87,8 @@ class OutputComponent extends MainComponent
 
                 if ($interface['clock_rate'] > 0)
                     $if[] = 'clock rate ' . $interface['clock_rate'];
+
+                $if[] = 'no shutdown';
 
                 $interfaces[] = $if;
 
