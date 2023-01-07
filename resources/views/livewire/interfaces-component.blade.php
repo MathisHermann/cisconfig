@@ -15,7 +15,7 @@
                    class="block text-sm font-medium text-gray-700">
                 IPv4 Subnet Generator</label>
 
-            <div class="flex flex-row space-x-4 items-center">
+            <div class="flex flex-row space-x-4 items-center px-2">
 
                 <input
                     wire:model="subnet"
@@ -24,13 +24,16 @@
                     min="0"
                     max="32"
                 >
-                <span class="px-8">
-            {{ $subnet }}
-        </span>
+            <label for="subnet_number" class="sr-only">Numerical</label>
+                <input
+                    wire:model="subnet"
+                    type="number" name="subnet_number" id="subnet_number"
+                    class="block w-1/6 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    placeholder="24">
             </div>
-            <span class="text-base font-medium">
-        {{ $subnet_mask }}
-    </span>
+            <div class="text-sm font-normal px-2">
+                {{ $subnet_mask }}
+            </div>
         </div>
 
         @foreach($interface_bag as $interface)
