@@ -17,6 +17,7 @@
                             <option>GigabitEthernet</option>
                             <option>FastEthernet</option>
                             <option>Serial</option>
+                            <option>Loopback</option>
                         </select>
                     </div>
                     <div>
@@ -29,12 +30,25 @@
                     </div>
                 </div>
             </fieldset>
+            <fieldset class="mt-6">
+                <div class="mt-1 -space-y-px rounded-md shadow-sm">
+                    <div>
+                        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                        <input
+                            wire:model="interface_bag.{{ $index }}.description"
+                            type="text" name="description" id="description"
+                            class="relative block w-full rounded-md border-gray-300 focus:z-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                            placeholder="WAN Y">
+                    </div>
+                </div>
+            </fieldset>
 
             <div class="mt-2">
                 <div class="mt-1 -space-y-px rounded-md shadow-sm">
                     <div>
                         <label for="ipv4address"
                                class="block text-sm font-medium text-gray-700">IPv4 Address + Subnet</label>
+
                         <input
                             wire:model="interface_bag.{{ $index }}.ipv4_address"
                             type="text" name="ipv4address" id="ipv4address" value="127.0.0.1"
@@ -46,6 +60,7 @@
                         <label for="ipv4addresssubnet"
                                class="sr-only">IPv4
                             Subnet</label>
+
                         <input
                             wire:model="interface_bag.{{ $index }}.subnet"
                             type="text" name="ipv4addresssubnet" id="ipv4addresssubnet"
@@ -53,6 +68,20 @@
                             class="relative block w-full rounded-none rounded-b-md border-gray-300 focus:z-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             placeholder="255.255.255.0">
                     </div>
+                </div>
+            </div>
+
+            <div class="mt-2">
+                <label for="iphelper"
+                       class="block text-sm font-medium text-gray-700">IP Helper</label>
+
+                <div class="mt-1 flex flex-row justify-between space-x-4">
+                    <input
+                        wire:model="interface_bag.{{ $index }}.ip_helper"
+                        type="text" name="iphelper" id="iphelper" value="::1"
+                        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                        placeholder="192.12.12.2">
+
                 </div>
             </div>
 

@@ -55,11 +55,13 @@ class MainComponent extends Component
                 'id' => '1',
                 'type' => 'Serial',
                 'if_id' => '0/0/1',
-                'ipv4_address' => '127.0.0.1',
-                'subnet' => '255.255.255.0',
+                'description' => '',
+                'ipv4_address' => '',
+                'subnet' => '',
+                'ip_helper' => '',
                 'ipv6_address' => '::1',
-                'bandwidth' => '20',
-                'clock_rate' => '1'
+                'bandwidth' => '',
+                'clock_rate' => ''
             ],
         ]);
     }
@@ -71,13 +73,35 @@ class MainComponent extends Component
                 'id' => count($this->interface_bag) + 1,
                 'type' => 'Serial',
                 'if_id' => '0/0/1',
-                'ipv4_address' => '127.0.0.1',
-                'subnet' => '255.255.255.0',
+                'description' => '',
+                'ipv4_address' => '',
+                'subnet' => '',
+                'ip_helper' => '',
                 'ipv6_address' => '::1',
-                'bandwidth' => '20',
-                'clock_rate' => '1'
+                'bandwidth' => '',
+                'clock_rate' => ''
             ])
         );
+
+        $this->emit('interface_updated', $this->interface_bag);
+    }
+
+    public function reset_if()
+    {
+        $this->interface_bag = collect([
+            0 => [
+                'id' => '1',
+                'type' => 'Serial',
+                'if_id' => '0/0/1',
+                'description' => '',
+                'ipv4_address' => '',
+                'subnet' => '',
+                'ip_helper' => '',
+                'ipv6_address' => '::1',
+                'bandwidth' => '',
+                'clock_rate' => ''
+            ],
+        ]);
 
         $this->emit('interface_updated', $this->interface_bag);
     }

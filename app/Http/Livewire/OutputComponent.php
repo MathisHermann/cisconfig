@@ -73,20 +73,27 @@ class OutputComponent extends MainComponent
 
                 $if[] = 'interface ' . $interface['type'] . $interface['if_id'];
                 $if[] = 'ip address ' . $interface['ipv4_address'] . ' ' . $interface['subnet'];
-                if($this->ospf_enabled)
+
+                if (!blank($interface['description']))
+                    $if[] = 'description ' . $interface['description'];
+
+                if ($this->ospf_enabled)
                     $if[] = 'ip ospf area 1';
 
-                if($this->ipv6) {
-                $if[] = 'ipv6 address ' . $interface['ipv6_address'] . '/64';
-                    if($this->ospf_enabled)
+                if ($this->ipv6) {
+                    $if[] = 'ipv6 address ' . $interface['ipv6_address'] . '/64';
+                    if ($this->ospf_enabled)
                         $if[] = 'ipv6 ospf area 1';
                 }
 
                 if ($interface['bandwidth'] > 0)
-                    $if[] = 'bandwidth ' . $interface['bandwidth'];
+                    $if[] = 'bandwidth ' . $interface['bandwidth'] * 1000;
 
                 if ($interface['clock_rate'] > 0)
-                    $if[] = 'clock rate ' . $interface['clock_rate'];
+                    $if[] = 'clock rate ' . $interface['clock_rate'] * 1000 * 1000;
+
+                if (!blank($interface['ip_helper']))
+                    $if[] = 'ip helper-address ' . $interface['ip_helper'];
 
                 $if[] = 'no shutdown';
 
@@ -106,16 +113,17 @@ class OutputComponent extends MainComponent
         if ($this->ipv6)
             $gen_config[] = 'ipv6 unicast-routing';
 
-        if ($this->passive_interface)
-            $gen_config[] = 'passive-interface ' . $this->passive_interface_id;
 
         if ($this->internet_interface) {
             $gen_config[] = 'ip route 0.0.0.0 0.0.0.0 ' . $this->internet_interface_id;
             $gen_config[] = 'default-information originate';
         }
 
-        if ($this->ospf_enabled)
+        if ($this->ospf_enabled) {
             $gen_config[] = 'router ospf 1';
+            if ($this->passive_interface)
+                $gen_config[] = 'passive-interface ' . $this->passive_interface_id;
+        }
 
 
         return [
